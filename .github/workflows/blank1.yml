@@ -12,12 +12,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-     - name: ls -a via ssh
-       uses: fifsky/ssh-action@master
-       with:
-         command: |
-           cd /tmp
-           ls -a
-         host: ansible
-         user: test
-         key: ${{ secrets.SSH_PRIVATE_KEY}}
+    - name: multiple command
+      uses: appleboy/ssh-action@master
+      with:
+        host: 34.121.209.219
+        username: test
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          whoami
+          ls -al
