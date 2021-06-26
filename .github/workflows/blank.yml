@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: remote ssh command
+
+on: 
+ push:
+  branches: [master]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+     - name: ls -a via ssh
+       uses: fifsky/ssh-action@master
+       with:
+         command: |
+           cd /tmp
+           ls -a
+         host: ansible
+         user: test
+         key: ${{ secrets.SSH-PRIVATE-KEY}}
