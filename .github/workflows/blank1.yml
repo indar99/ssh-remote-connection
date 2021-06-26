@@ -24,5 +24,6 @@ jobs:
           sudo -i 
           pwd
           gcloud container clusters list
+          kubectl create -f pod.yml && kubectl get pods
           
    
