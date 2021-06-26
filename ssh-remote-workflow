@@ -1,0 +1,25 @@
+name: remote ssh command
+
+on: 
+ push:
+  branches: [master]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: multiple command
+      uses: appleboy/ssh-action@master
+      with:
+        host: 34.121.209.219
+        username: test
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: |
+          whoami
+          sudo -i 
+          pwd
+          gcloud container clusters list
+          kubectl create -f pod.yml && kubectl get pods
