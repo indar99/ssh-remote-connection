@@ -4,7 +4,7 @@ name: remote ssh command
 
 on: 
  push:
-  branches: [master]
+  branches: [main]
 
 jobs:
 
@@ -20,4 +20,4 @@ jobs:
            ls -a
          host: ansible
          user: test
-         key: ${{ secrets.SSH-PRIVATE-KEY}}
+         key: ${{ secrets.SSH_PRIVATE_KEY}}
