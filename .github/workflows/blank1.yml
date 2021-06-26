@@ -23,5 +23,6 @@ jobs:
           whoami
           sudo -i 
           pwd
+          gcloud container clusters list
           
    
